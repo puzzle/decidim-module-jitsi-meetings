@@ -2,9 +2,14 @@
 
 source "https://rubygems.org"
 
-ruby RUBY_VERSION
+base_path = ""
+base_path = "../" if File.basename(__dir__) == "development_app"
+require_relative "#{base_path}lib/decidim/jitsi_meetings/version"
 
-gem "decidim", git: "https://github.com/decidim/decidim"
+ruby RUBY_VERSION
+DECIDIM_VERSION = Decidim::JitsiMeetings.version
+
+gem "decidim", DECIDIM_VERSION
 gem "decidim-jitsi_meetings", path: "."
 
 gem "bootsnap", "~> 1.3"
@@ -15,7 +20,7 @@ gem "uglifier", "~> 4.1"
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
-  gem "decidim-dev", git: "https://github.com/decidim/decidim"
+  gem "decidim-dev", DECIDIM_VERSION
 end
 
 group :development do
