@@ -15,9 +15,9 @@ module Decidim
         root to: "application#show"
       end
 
-      initializer "decidim_jitsi_meetings.assets" do |app|
-        app.config.assets.precompile += %w[decidim_jitsi_meetings_manifest.js decidim_jitsi_meetings_manifest.css]
-      end
+      # initializer "decidim_jitsi_meetings.assets" do |app|
+      #   app.config.assets.precompile += %w[decidim_jitsi_meetings_manifest.js decidim_jitsi_meetings_manifest.css]
+      # end
     end
   end
 end
