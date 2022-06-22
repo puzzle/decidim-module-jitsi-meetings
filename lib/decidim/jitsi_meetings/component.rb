@@ -5,7 +5,7 @@ require_dependency "decidim/components/namer"
 Decidim.register_component(:jitsi_meetings) do |component|
   component.engine = Decidim::JitsiMeetings::Engine
   component.admin_engine = Decidim::JitsiMeetings::AdminEngine
-  component.icon = "decidim_jitsi_meetings_icon.svg"
+  component.icon = "media/images/decidim_jitsi_meetings_icon.svg"
   component.permissions_class_name = "Decidim::JitsiMeetings::Permissions"
 
   component.query_type = "Decidim::JitsiMeetings::JitsiMeetingsType"
