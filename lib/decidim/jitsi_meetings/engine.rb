@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "rails"
-require "decidim/core"
+require 'rails'
+require 'decidim/core'
 
 module Decidim
   module JitsiMeetings
@@ -12,7 +12,11 @@ module Decidim
       routes do
         # Add engine routes here
         resources :jitsi_meetings, only: [:show], controller: :application
-        root to: "application#show"
+        root to: 'application#show'
+      end
+
+      initializer 'jitsi_meetings.webpacker.assets_path' do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
       # initializer "decidim_jitsi_meetings.assets" do |app|
