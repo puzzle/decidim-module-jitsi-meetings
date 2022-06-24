@@ -2,24 +2,26 @@
 
 module Decidim
   module JitsiMeetings
-    JitsiMeetingsType = GraphQL::ObjectType.define do
+    class JitsiMeetingsType < GraphQL::Schema::Object
       interfaces [-> { Decidim::Core::ComponentInterface }]
 
-      name "JitsiMeetings"
+      graphql_name "JitsiMeetings"
       description "A jitsi meetings component of a participatory space."
 
-      connection :jitsi_meetings, JitsiMeetingType.connection_type do
-        resolve ->(component, _args, _ctx) {
-                  JitsiMeetingsTypeHelper.base_scope(component).includes(:component)
-                }
-      end
+      field :jitsi_meetings,
+            JitsiMeetingType.connection_type,
+            null: true,
+            resolve: ->(component, _args, _ctx) {
+              JitsiMeetingsTypeHelper.base_scope(component).includes(:component)
+            }
 
-      field(:jitsi_meeting, JitsiMeetingType) do
-        argument :id, !types.ID
-
-        resolve ->(component, args, _ctx) {
-          JitsiMeetingsTypeHelper.base_scope(component).find_by(id: args[:id])
-        }
+      field :jitsi_meeting,
+            JitsiMeetingType,
+            null: false,
+            resolve: ->(component, args, _ctx) {
+              JitsiMeetingsTypeHelper.base_scope(component).find_by(id: args[:id])
+            } do
+        argument :id, GraphQL::Types::ID, required: true
       end
     end
 
