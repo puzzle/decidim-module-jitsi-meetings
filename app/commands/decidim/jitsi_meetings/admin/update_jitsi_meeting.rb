@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user changes a Jitsi Meeting from the admin
       # panel.
-      class UpdateJitsiMeeting < Rectify::Command
+      class UpdateJitsiMeeting < Decidim::Command
         # Initializes a UpdatePage Command.
         #
         # form - The form from which to get the data.

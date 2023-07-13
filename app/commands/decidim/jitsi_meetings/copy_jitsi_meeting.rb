@@ -5,7 +5,7 @@ module Decidim
     # Command that gets called whenever a component's page has to be duplicated.
     # It's need a context with the old component that
     # is going to be duplicated on the new one
-    class CopyJitsiMeeting < Rectify::Command
+    class CopyJitsiMeeting < Decidim::Command
       def initialize(context)
         @context = context
       end

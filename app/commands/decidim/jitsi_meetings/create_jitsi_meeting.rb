@@ -4,7 +4,7 @@ module Decidim
   module JitsiMeetings
     # Command that gets called whenever a component's jitsi meeting has to be created. It
     # usually happens as a callback when the component itself is created.
-    class CreateJitsiMeeting < Rectify::Command
+    class CreateJitsiMeeting < Decidim::Command
       def initialize(component)
         @component = component
       end

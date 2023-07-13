@@ -4,7 +4,7 @@ module Decidim
   module JitsiMeetings
     # Command that gets called when the jitsi meeting of this component needs to be
     # destroyed. It usually happens as a callback when the component is removed.
-    class DestroyJitsiMeeting < Rectify::Command
+    class DestroyJitsiMeeting < Decidim::Command
       def initialize(component)
         @component = component
       end
